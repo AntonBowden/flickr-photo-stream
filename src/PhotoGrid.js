@@ -5,6 +5,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Fade from '@material-ui/core/Fade';
+import { extractAuthor } from './utils';
 
 const styles = theme => ({
   root: {
@@ -38,7 +39,7 @@ function TitlebarGridList(props) {
               <GridListTileBar
                 title={photo.title === ' ' || !photo.title ? <a href={photo.link}>Untitled</a> : <a href={photo.link}>{photo.title}</a>}
                 subtitle={
-                  <div><span>by: {<a href={`https://www.flickr.com/people/${photo.author_id}`}>{'author'}</a>}</span>
+                  <div><span>by: {<a href={`https://www.flickr.com/people/${photo.author_id}`}>{extractAuthor(photo.author)}</a>}</span>
                   <br/><span>Tags: {photo.tags}</span></div>
                 }
               />
