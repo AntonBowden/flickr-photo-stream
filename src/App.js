@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import fetchJsonp from 'fetch-jsonp';
+import SimpleAppBar from './SimpleAppBar';
 import PhotoGrid from './PhotoGrid';
 
 class App extends Component {
@@ -30,6 +30,7 @@ class App extends Component {
     console.log(this.state.photos);
     return (
       <div className="App">
+        <SimpleAppBar />
         <PhotoGrid loadPhotos={this.loadPhotos} photos={this.state.photos}/>
       </div>
     );
