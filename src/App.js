@@ -28,6 +28,9 @@ class App extends Component {
 
   render() {
     console.log(this.state.photos);
+    if (!this.state.photos.length) {
+      return (<p>Loading...</p>);
+    }
     return (
       <div className="App">
         <SimpleAppBar />

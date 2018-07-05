@@ -6,6 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Fade from '@material-ui/core/Fade';
 import { extractAuthor } from './utils';
+import InfiniteScroll from 'react-infinite-scroller';
 
 const styles = theme => ({
   root: {
@@ -30,7 +31,13 @@ function TitlebarGridList(props) {
 
   return (
     <div className={classes.root}>
-
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={props.loadPhotos}
+      hasMore={true || false}
+      threshold={1200}
+      loader={<div className="loader" key={'z'}>Loading ...</div>}
+    >
       <GridList cellHeight={300} className={classes.gridList} cols={4}>
         {props.photos.map((photo, index) => (
           <Fade in={true} timeout={{enter: 3000}} key={index}>
@@ -47,7 +54,7 @@ function TitlebarGridList(props) {
           </Fade>
         ))}
       </GridList>
-
+    </InfiniteScroll>
     </div>
   );
 }
