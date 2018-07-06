@@ -56,8 +56,13 @@ function TitlebarGridList(props) {
                   <br/><span>Tags: {photo.tags}</span></div>
                 }
                 actionIcon={description &&
-                  <Tooltip id="tooltip-icon" title={<div dangerouslySetInnerHTML={{ __html: description }}/>}>
-                    <IconButton className={classes.icon}>
+                  <Tooltip
+                    disableHoverListener={true}
+                    placement="top"
+                    id="tooltip-icon"
+                    title={<div dangerouslySetInnerHTML={{ __html: description }}/>}
+                  >
+                    <IconButton size="large" className={classes.icon}>
                       <InfoIcon />
                     </IconButton>
                   </Tooltip>

@@ -26,8 +26,7 @@ class App extends Component {
     this.loadPhotos();
   }
 
-  render() {
-    console.log(this.state.photos);
+  render() {    
     if (!this.state.photos.length) {
       return (<p>Loading...</p>);
     }
